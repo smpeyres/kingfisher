@@ -8,12 +8,13 @@ InputParameters
 KayMaterial::validParams()
 {
   InputParameters params = ADMaterial::validParams();
-
+  params.addRequiredCoupledVar("variable", "The variables in the denominator");
   return params;
 }
 
 KayMaterial::KayMaterial(const InputParameters & parameters)
-  : ADMaterial(parameters)
+  : ADMaterial(parameters),
+  _grad_u(adCoupledGradient("variable"))
 {
 }
 

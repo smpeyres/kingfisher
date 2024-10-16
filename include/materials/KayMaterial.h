@@ -22,4 +22,7 @@ protected:
    */
   virtual void computeQpProperties() override;
 
+  /// The coupled variable gradient
+  const ADVariableGradient & _grad_u;
+
 };
